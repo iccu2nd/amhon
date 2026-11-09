@@ -1,1 +1,56 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#090a0c">
+  <title>GitHub Importer</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <main class="shell">
+    <header class="top">
+      <div class="brand"><span class="mark">GH</span><div><strong>GitHub Importer</strong><small>PROJECT MANAGEMENT</small></div></div>
+      <span class="status"><i></i> DASHBOARD</span>
+    </header>
 
+    <section class="intro">
+      <p class="eyebrow">SIMPLE · SECURE · FAST</p>
+      <h1>Manage project <em>GitHub.</em></h1>
+      <p class="sub">Upload project ZIP, perbarui repository, dan kelola semua repository dari satu dashboard.</p>
+    </section>
+
+    <section class="panel auth">
+      <div><h2>Akses dashboard</h2><p>Password admin yang kamu atur di Vercel.</p></div>
+      <div class="auth-row"><input id="password" type="password" placeholder="Password dashboard" autocomplete="current-password"><button id="connect" class="secondary">Hubungkan</button></div>
+    </section>
+
+    <section class="panel">
+      <div class="section-title"><div><span class="number">01</span><h2>Upload project</h2></div><span class="tag">ZIP FILE</span></div>
+      <label class="field-label" for="repo">Nama repository</label>
+      <input id="repo" placeholder="contoh: project-webku" autocomplete="off">
+      <label class="field-label">Cara upload</label>
+      <div class="mode-grid">
+        <button type="button" class="mode-card selected" data-mode="merge"><span class="mode-icon">＋</span><strong>Gabungkan / Update</strong><small>Perbarui file yang sama. File lama lainnya tetap ada.</small><span class="mode-choice">✓ Dipilih</span></button>
+        <button type="button" class="mode-card" data-mode="replace"><span class="mode-icon">↻</span><strong>Ganti Semua</strong><small>Isi repository disamakan dengan isi ZIP terbaru.</small><span class="mode-choice">Pilih mode</span></button>
+      </div>
+      <div id="warning" class="warning-note hidden">File lama yang tidak ada di ZIP akan dihapus dari versi terbaru repository. Riwayat commit Git tetap tersimpan.</div>
+      <label class="field-label" for="zip">File project (.zip)</label>
+      <label class="drop" for="zip"><span class="upload-icon">↑</span><strong id="file-name">Pilih file ZIP</strong><small id="file-size">Klik untuk memilih file dari perangkat</small></label>
+      <input id="zip" type="file" accept=".zip,application/zip" hidden>
+      <label class="check"><input id="private" type="checkbox"> Jadikan repository baru private <span>Pengaturan ini hanya berlaku saat membuat repo baru.</span></label>
+      <button id="upload" class="primary">Upload ke GitHub <span>↗</span></button>
+      <p class="hint">Maksimal ZIP 4 MB · 250 file · 30 MB total hasil ekstrak.</p>
+    </section>
+
+    <div id="notice" class="notice hidden" role="status"></div>
+
+    <section class="panel">
+      <div class="section-title"><div><span class="number">02</span><h2>Repository</h2></div><button id="refresh" class="refresh">↻ Refresh</button></div>
+      <div id="repos" class="empty"><span>⌘</span><strong>Belum ada repository ditampilkan</strong><small>Hubungkan dashboard untuk melihat repository GitHub.</small></div>
+    </section>
+    <footer>GitHub Importer <span>•</span> Token tersimpan aman di server.</footer>
+  </main>
+  <script src="/app.js" defer></script>
+</body>
+</html>
