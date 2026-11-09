@@ -1,0 +1,20 @@
+{
+  "name": "github-importer",
+  "version": "3.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vercel dev"
+  },
+  "dependencies": {
+    "adm-zip": "^0.5.16",
+    "axios": "^1.7.9",
+    "formidable": "^3.5.2"
+  },
+  "devDependencies": {
+    "@types/node": "^22.13.10",
+    "@vercel/node": "^3.2.29",
+    "typescript": "^5.8.2",
+    "vercel": "^41.4.1"
+  }
+}
